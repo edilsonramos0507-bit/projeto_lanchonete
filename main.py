@@ -1,6 +1,7 @@
 from pedido import Pedido 
-
 from cliente import Cliente
+from produto import Produto
+from itemPedido import ItemPedido
 #criar um objeto - representar um elemento - dar valores 
 #novoPedido = Pedido(1, "14/09/2026", "21:10", "Rafael",
                     #["X-Salada", "X-Bacon"], "Pix")
@@ -34,3 +35,8 @@ novoCliente = Cliente(endereco="Rua Vital Brasil",nome="Raniele",
                       telefone="67 9 9999-5588")
 
 novoCliente.imprimir()
+
+xbacon = Produto(codigo="P01", descricão="X-Bacon", categoria="Lanche", preco=19.90)
+xbacon.imprimirProduto()
+
+
