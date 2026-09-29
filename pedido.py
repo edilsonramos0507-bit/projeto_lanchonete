@@ -1,32 +1,27 @@
 class Pedido:
-    #não define os atributos
-    status="Recebido"
-
-    #Método construtor  - instancia recebe os valor do objeto
-    def __init__(self, num, data, hora, cliente, itens, pag):
-        #self é chamar atributos;
-        self.__num=num#private - não ser acessado bem alterado por outra classses 
-        self.data=data#publico - pode ser acessado e alterado por outras classes 
-        self.hora=hora
-        self.cliente=cliente
-        self.__itens=itens
-        self.pagamento=pag
-
-        #método - ação 
-    def atualizar_pedido(self, novoStatus):     
-            self.status=novoStatus
-
+    status = "Recebido"
+ 
+    def __init__(self, num, data, hora, cliente, itemPedido, pagamento):
+        self.num = num
+        self.data = data
+        self.hora = hora
+        self.cliente = cliente
+        self.__itemPedido = itemPedido
+        self.pagamento = pagamento
+ 
+    def atualizarPedido(self, novoStatus):
+        self.status = novoStatus
+ 
     def imprimir(self):
-        print(f"\n------------------- Pedido N° {self.num} --------------------"
-                f"\nData: {self.data} - Horário: {self.hora} "
-                f"\nCliente: {self.cliente}")
-
-     #encapsulamento
-    def setNum(self, numero): #setado-alterado indiretamente pois num é privado 
-            self.__num=numero
-
-    def getMum(self): #acessar a informação de variavel private
-            return self.num
-
-    def setiten(self, item): #controla as informações 
-            self.__iten.appen(item)
+        print(f"\n|--------- Pedido nº {self.num} ----------|"
+              f"\n|Data: {self.data}                        |"
+              f"\n|Horário: {self.hora}                     |"
+              f"\n|Cliente: {self.cliente.nome}             |"
+              f"\n||"
+              f"\n|Método de Pagamento: {self.pagamento}    |"
+              f"\n|Endereço: {self.cliente.endereco}        |"
+              f"\n|Telefone: {self.cliente.telefone}        |"
+              f"\n|Status: {self.status}                    |"
+              f"\n|-----------------------------------------|")
+        for item in self.__itemPedido:
+            print(f"\nProduto: {item.produto.descricao} - Qtd: {item.quantidade} - Total: {item.totalItem()}")

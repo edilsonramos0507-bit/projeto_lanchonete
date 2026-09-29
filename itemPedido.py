@@ -8,6 +8,6 @@ class ItemPedido:
         self.desconto=desconto
 
 
-def totalItem(self):
-        return(self.quantidade*self.produto.preco)-self.desconto
+    def totalItem(self):
+            return(self.quantidade*self.produto.preco)-self.desconto
         

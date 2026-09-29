@@ -1,42 +1,30 @@
-from pedido import Pedido 
+import os
 from cliente import Cliente
 from produto import Produto
 from itemPedido import ItemPedido
-#criar um objeto - representar um elemento - dar valores 
-#novoPedido = Pedido(1, "14/09/2026", "21:10", "Rafael",
-                    #["X-Salada", "X-Bacon"], "Pix")
+from pedido import Pedido
+ 
+os.system("cls")
+ 
+#Cadastrar Cliente
+novoCli = Cliente(nome="João",
+                 endereco="Rua boa, nº00", telefone="67 (+55) 7265-1233")
+ 
+#Cadastrar Produto
+siri = Produto(cod=1,desc="Hámburger de Siri", categoria="Lanche",
+               preco=20.55)
+refri = Produto(cod=2, desc="Tubaina", categoria="Bebidas",
+                preco=5.6)
+ 
+novoCli.imprimir()
+siri.imprimir
+refri.imprimir()
+ 
+#Pedido
+item1 = ItemPedido(produto=siri, obs="Cebola extra", qtd=2, desconto=2)
+item2 = ItemPedido(produto=refri, obs="", qtd=2, desconto=0)
 
-##### Oque eu posso fazer com o objeto #####
-#acessar um atributo 
-#print(novoPedido.num)
-#print(novoPedido.status)
-#alterar os dados de um atributo 
-#novoPedido.cliente="Rafael Martins"
-#print(novoPedido.cliente)
+itens = [item1, item2]
 
-#chamando os metodos 
-#novoPedido.imprimir()
-#novoPedido.atualizar_pedido("Em preparação")
-
-#acessar o id - private
-#novoPedido.__Num=2
-#print(novoPedido.__num) #acessar
-#novoPedido.imprimir()
-
-#print(novoPedido.getNum())
-#novoPedido.setNum(2)
-#print(novoPedido.getNum())
-
-#novoPedido.setIten("X-Calabresa")
-#novoPedido.imprimir()
-
-
-novoCliente = Cliente(endereco="Rua Vital Brasil",nome="Raniele",
-                      telefone="67 9 9999-5588")
-
-novoCliente.imprimir()
-
-xbacon = Produto(codigo="P01", descricão="X-Bacon", categoria="Lanche", preco=19.90)
-xbacon.imprimirProduto()
-
-
+pedido = Pedido (cliente=novoCli, data="14.02.2030", hora="19:40", itemPedido=itens, num="67 (+55) 7265-1233", pagamento="Cartão")
+pedido.imprimir()
